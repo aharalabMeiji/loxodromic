@@ -1,32 +1,30 @@
-SL2C A;
+SL2C A,B;
 Complex a;
-
+Group klein;
 void setup(){
 
   A = new SL2C();
-  A.set21(1,1);
+  A.set21(1,0);
+  B = new SL2C();
+  B.set12(1,0);
   
-  println(A.toString1());
-  println(A.toString2());
- 
+  klein = new Group();
+  klein.SetA(A,B);
+  
+  println(klein.A.toString1());
+  println(klein.A.toString2());
+
+   println(klein.B.toString1());
+  println(klein.B.toString2());
+
   a = new Complex(1,0);
 
   size(1000,1000);
-  
 }
 
 void draw(){
+  background(255);
   RenderPlane();
   a.SetMouse();
-  a.Plot(0,128,0);
-  Complex fa = a.copy();
-  for(int repeat=0;repeat<5; repeat++){
-    fa = A.F(fa);
-    fa.Plot(255 - repeat*20,0,0);
-  }
-  fa = a.copy();
-  for(int repeat=0;repeat<5; repeat++){
-    fa = A.FInv(fa);
-    fa.Plot(0,255 - repeat*20,0);
-  }
+  klein.RenderOrbit(a,0);
 }

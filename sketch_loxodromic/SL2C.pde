@@ -78,7 +78,13 @@ class SL2C{
   }
   
   void RenderOrbit(Complex c,int depth){
-    
+    if(c.isOpen()){
+      c.Plot(255-depth*20,0,0);
+      if(depth<10){
+        RenderOrbit(F(c),depth+1);
+        RenderOrbit(FInv(c),depth+1);
+      }
+    }
   }
   
 }

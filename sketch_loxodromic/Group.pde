@@ -1,10 +1,10 @@
-class Group{
-  SL2C A,B;
-  Group(){
+class Group {
+  SL2C A, B;
+  Group() {
     A = new SL2C();
     B = new SL2C();
   }
-  
+
   void SetA(SL2C _A, SL2C _B)
   {
     A.set11(_A.get11());
@@ -16,5 +16,15 @@ class Group{
     B.set21(_B.get21());
     B.set22(_B.get22());
   }
-  
+  void RenderOrbit(Complex c, int depth) {
+    if (c.isOpen()) {
+      c.Plot(255-depth*10, 0, 0);
+      if (depth<25) {
+        RenderOrbit(A.F(c), depth+1);
+        RenderOrbit(A.FInv(c), depth+1);
+        RenderOrbit(B.F(c), depth+1);
+        RenderOrbit(B.FInv(c), depth+1);
+      }
+    }
+  }
 }

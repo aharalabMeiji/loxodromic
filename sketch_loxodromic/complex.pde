@@ -112,6 +112,23 @@ class Complex{
     float y = xAxis-unit*im;
     return (0<=x && x<width && 0<=y && y<height);
   }
+  boolean inWideSpot(){
+    float x = yAxis+unit*re;
+    float y = xAxis-unit*im;
+    return (-width<=x && x<width*2 && -height<=y && y<height*2);
+  }
+  boolean isOpen(){
+    if(inSpot()){
+      int x = int(yAxis+unit*re);
+      int y = int(xAxis-unit*im);
+      loadPixels();
+      color c = pixels[x + width * y];
+      if(c==#ffffff){
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 Complex rotation(float theta){

@@ -1,38 +1,38 @@
 class SL2C{
-  complex a,b,c,d;
+  Complex a,b,c,d;
   
   SL2C (){
-    a = new complex (1f, 0f);    
-    b = new complex (0f, 0f);    
-    c = new complex (0f, 0f);    
-    d = new complex (1f, 0f);
+    a = new Complex (1f, 0f);    
+    b = new Complex (0f, 0f);    
+    c = new Complex (0f, 0f);    
+    d = new Complex (1f, 0f);
   }
   
-  void setA(complex _a){
+  void set11(Complex _a){
     a.copy(_a);
   }
-  void setA(float r, float i){
+  void set11(float r, float i){
     a.re = r;
     a.im = i;
   }
-  void setB(complex _b){
+  void set12(Complex _b){
     b.copy(_b);
   }
-  void setB(float r, float i){
+  void set12(float r, float i){
     b.re = r;
     b.im = i;
   }
-  void setC(complex _c){
+  void set21(Complex _c){
     c.copy(_c);
   }
-  void setC(float r, float i){
+  void set21(float r, float i){
     c.re = r;
     c.im = i;
   }
-  void setD(complex _d){
+  void set22(Complex _d){
     d.copy(_d);
   }
-  void setD(float r, float i){
+  void set22(float r, float i){
     d.re = r;
     d.im = i;
   }
@@ -43,21 +43,32 @@ class SL2C{
     return "( "+c.toString()+" , "+d.toString()+" )";
   }
   
-  complex f(complex z){
-    complex azb = a.copy();
+  Complex F(Complex z){
+    Complex azb = a.copy();
     azb.times(z);
     azb.plus(b);
-    complex czd = c.copy();
+    Complex czd = c.copy();
     czd.times(z);
     czd.plus(d);
     azb.div(czd);
     return azb;
   }
+  Complex FInv(Complex z){  //(dz-b)/(-cz+a)
+    Complex dzb = d.copy();
+    dzb.times(z);
+    dzb.minus(b);
+    Complex cza = c.copy();
+    cza.times(-1);
+    cza.times(z);
+    cza.plus(a);
+    dzb.div(cza);
+    return dzb;
+  }
   
   
 }
 
-  //SL2C grammasRecipe(complex t1, complex t2){
+  //SL2C grammasRecipe(Complex t1, Complex t2){
     
     
   //}

@@ -1,38 +1,43 @@
-class complex{
+class Complex{
   float re, im;
-  complex (){
+  Complex (){
     re = 0f;
     im = 0f;
   }
-  complex (float _re, float _im){
+  Complex (float _re, float _im){
     re = _re;
     im = _im;
   }
   
-  complex copy(){
-    return new complex (re, im);
+  Complex copy(){
+    return new Complex (re, im);
   }
 
-  void copy(complex z){
+  void copy(Complex z){
     re = z.re;
     im = z.im;
   }
   
   String toString(){
-    return (re+"+"+im+"I");
+    if(im>0)
+      return (re+"+"+im+"I");
+    else if(im==0)
+      return (""+re);
+    else 
+      return (re+""+im+"I");
   }
   
-  void plus(complex z){
+  void plus(Complex z){
     re += z.re;
     im += z.im;
   }
   
-  void minus(complex z){
+  void minus(Complex z){
     re -= z.re;
     im -= z.im;
   }
   
-  void times(complex z){
+  void times(Complex z){
     float r = re * z.re - im * z.im;
     float i = re * z.im + im * z.re;
     re = r;
@@ -46,10 +51,10 @@ class complex{
     im = i;
   }
 
-  void div(complex z){
+  void div(Complex z){
     float nn = z.re * z.re + z.im * z.im;
     if(nn==0f){
-      ;    
+      return ;    
     }
     float r = (re * z.re + im * z.im) / nn;
     float i = (-re * z.im + im * z.re) / nn;
@@ -58,6 +63,7 @@ class complex{
   }
 
   void div(float z){
+    if(z==0) return;
     float r = re / z;
     float i = im / z;
     re = r;
@@ -76,6 +82,6 @@ class complex{
   
 }
 
-complex rot(float theta){
-  return new complex(cos(theta), sin(theta));
+Complex rotation(float theta){
+  return new Complex(cos(theta), sin(theta));
 }

@@ -106,6 +106,12 @@ class Complex{
     fill(r,g,b);
     ellipse(yAxis+unit*re,xAxis-unit*im,4,4); 
   }
+  
+  boolean inSpot(){
+    float x = yAxis+unit*re;
+    float y = xAxis-unit*im;
+    return (0<=x && x<width && 0<=y && y<height);
+  }
 }
 
 Complex rotation(float theta){

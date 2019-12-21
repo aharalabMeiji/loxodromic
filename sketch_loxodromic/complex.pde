@@ -100,14 +100,13 @@ class Complex{
     }
   }
   
-  void Plot(float r, float g, float b)
+  void Plot(int hsb)
   {
     if(inSpot()){
       int x = int(yAxis+unit*re);
       int y = int(xAxis-unit*im);
       // 色相環で回す。
-      pixels[x + width * y] = color(r,g,b);
-      //ellipse(yAxis+unit*re,xAxis-unit*im,4,4);
+      pixels[x + width * y] = hsbColor[hsb%(hsbColor.length)];
     }
   }
   

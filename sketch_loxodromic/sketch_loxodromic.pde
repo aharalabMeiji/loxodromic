@@ -1,31 +1,33 @@
-SL2C A,B;
+SL2C A, B;
 Complex a;
 Group klein;
-void setup(){
+void setup() {
   A = new SL2C();
-  A.set21(1,1);
+  A.set21(1, 1);
   B = new SL2C();
-  B.set12(1,1);
-  
+  B.set12(1, 1);
+
   klein = new Group();
-  klein.SetA(A,B);
-  
-  println(klein.A.toString1());
-  println(klein.A.toString2());
+  klein.SetA(A, B);
 
-   println(klein.B.toString1());
-  println(klein.B.toString2());
+  println(klein.A.toString());
+  println(klein.B.toString());
 
-  a = new Complex(1,0);
+  a = new Complex(1, 0);
 
-  size(1000,1000);
+  size(1000, 1000);
+  background(255);
 }
 
-void draw(){
-  background(255);
-  RenderPlane();
-  a.SetMouse();
-  loadPixels();
-  klein.RenderOrbit(a,0);
-  updatePixels();
+void draw() {
+  if (mousePressed) {
+    background(255);
+    RenderPlane(false);
+    a.SetMouse();
+    loadPixels();
+    klein.RenderOrbit(a, 0);
+    updatePixels();
+  }
+  else {
+  }
 }

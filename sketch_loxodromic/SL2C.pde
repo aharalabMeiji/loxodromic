@@ -48,11 +48,8 @@ class SL2C{
   Complex get22(){
     return d;
   }
-  String toString1(){
-    return "( "+a.toString()+" , "+b.toString()+" )";
-  }
-  String toString2(){
-    return "( "+c.toString()+" , "+d.toString()+" )";
+  String toString(){
+    return "( "+a.toString()+" , "+b.toString()+" )\n"+"( "+c.toString()+" , "+d.toString()+" )";
   }
   
   Complex F(Complex z){
@@ -79,7 +76,7 @@ class SL2C{
   
   void RenderOrbit(Complex c,int depth){
     if(c.isOpen()){
-      c.Plot(255-depth*20,0,0);
+      c.Plot(depth);
       if(depth<10){
         RenderOrbit(F(c),depth+1);
         RenderOrbit(FInv(c),depth+1);

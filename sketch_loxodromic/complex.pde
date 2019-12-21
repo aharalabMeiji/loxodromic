@@ -19,12 +19,20 @@ class Complex{
   }
   
   String toString(){
-    if(im>0)
+    if(im>0f)
       return (re+"+"+im+"I");
-    else if(im==0)
+    else if(im==0f)
       return (""+re);
     else 
       return (re+""+im+"I");
+  }
+  
+  boolean equal(Complex z){
+    return (re==z.re && im==z.im);
+  }
+  
+  boolean equal(float z){
+    return (re==z && im==0f);
   }
   
   void plus(Complex z){
@@ -70,18 +78,28 @@ class Complex{
     im = i;
   }
 
-  void sqrt(){
+  void sqrt(boolean first){
     float theta = atan2(im, re);
     float norm = (float)Math.sqrt(re * re + im * im);
     float newTheta = theta/2;
     float newNorm = (float)Math.sqrt(norm);
-    re = newNorm * cos(newTheta);
-    im = newNorm * sin(newTheta);
+    if(first){
+      re = newNorm * cos(newTheta);
+      im = newNorm * sin(newTheta);
+    }
+    else {
+      re = -newNorm * cos(newTheta);
+      im = -newNorm * sin(newTheta);
+    }
   }
-  
-  
 }
 
 Complex rotation(float theta){
   return new Complex(cos(theta), sin(theta));
+}
+
+Complex QuadraticEquation(Complex a, Complex b, Complex c, boolean first){
+ // (-b+sqrt(b^2-4*a*c))/(2a)
+ if(
+  
 }

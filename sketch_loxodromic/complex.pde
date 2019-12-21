@@ -102,9 +102,15 @@ class Complex{
   
   void Plot(float r, float g, float b)
   {
-    noStroke();
-    fill(r,g,b);
-    ellipse(yAxis+unit*re,xAxis-unit*im,4,4); 
+    //noStroke();
+    //fill(r,g,b);
+    if(inSpot()){
+      int x = int(yAxis+unit*re);
+      int y = int(xAxis-unit*im);
+      pixels[x + width * y]=color(r,g,b);
+      //ellipse(yAxis+unit*re,xAxis-unit*im,4,4);
+      //updatePixels();
+    }
   }
   
   boolean inSpot(){
@@ -121,7 +127,7 @@ class Complex{
     if(inSpot()){
       int x = int(yAxis+unit*re);
       int y = int(xAxis-unit*im);
-      loadPixels();
+      //loadPixels();
       color c = pixels[x + width * y];
       if(c==#ffffff){
         return true;

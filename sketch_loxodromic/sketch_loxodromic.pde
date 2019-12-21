@@ -4,9 +4,9 @@ Group klein;
 void setup(){
 
   A = new SL2C();
-  A.set21(1,0);
+  A.set21(1,1);
   B = new SL2C();
-  B.set12(1,0);
+  B.set12(1,1);
   
   klein = new Group();
   klein.SetA(A,B);
@@ -26,5 +26,7 @@ void draw(){
   background(255);
   RenderPlane();
   a.SetMouse();
+  loadPixels();
   klein.RenderOrbit(a,0);
+  updatePixels();
 }

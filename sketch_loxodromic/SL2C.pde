@@ -15,12 +15,18 @@ class SL2C{
     a.re = r;
     a.im = i;
   }
+  Complex get11(){
+    return a;
+  }
   void set12(Complex _b){
     b.copy(_b);
   }
   void set12(float r, float i){
     b.re = r;
     b.im = i;
+  }
+  Complex get12(){
+    return b;
   }
   void set21(Complex _c){
     c.copy(_c);
@@ -29,12 +35,18 @@ class SL2C{
     c.re = r;
     c.im = i;
   }
+  Complex get21(){
+    return c;
+  }
   void set22(Complex _d){
     d.copy(_d);
   }
   void set22(float r, float i){
     d.re = r;
     d.im = i;
+  }
+  Complex get22(){
+    return d;
   }
   String toString1(){
     return "( "+a.toString()+" , "+b.toString()+" )";
@@ -65,6 +77,9 @@ class SL2C{
     return dzb;
   }
   
+  void RenderOrbit(Complex c,int depth){
+    
+  }
   
 }
 

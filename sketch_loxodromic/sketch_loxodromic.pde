@@ -2,7 +2,6 @@ SL2C A,B;
 Complex a;
 Group klein;
 void setup(){
-
   A = new SL2C();
   A.set21(1,1);
   B = new SL2C();

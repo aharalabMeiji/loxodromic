@@ -18,7 +18,7 @@ class Group {
   }
   void RenderOrbit(Complex c, int depth) {
     if (c.isOpen()) {
-      c.Plot(255-depth*10, 0, 0);
+      c.Plot(depth*10, 200, 100);
       if (depth<25) {
         RenderOrbit(A.F(c), depth+1);
         RenderOrbit(A.FInv(c), depth+1);

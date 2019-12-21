@@ -1,10 +1,13 @@
 // Plane
-
+  float xAxis;
+  float yAxis;
+  float unit;
+  
 void RenderPlane(){
-  background(255);
-  float xAxis = 0.5f * height;
-  float yAxis = 0.5f * width;
-  float unit = 0.2f*width;
+  //background(255);
+  xAxis = 0.5f * height;
+  yAxis = 0.5f * width;
+  unit = 0.2f*width;
   for(int x=-3; x<=3; x++){
     if(x==0){
       stroke(128);

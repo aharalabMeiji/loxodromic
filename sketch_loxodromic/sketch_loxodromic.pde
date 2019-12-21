@@ -1,21 +1,27 @@
+SL2C A;
+Complex a;
+
 void setup(){
 
-  SL2C A = new SL2C();
-  A.set21(2,1);
+  A = new SL2C();
+  A.set21(1,0);
   
   println(A.toString1());
   println(A.toString2());
  
-  Complex z = new Complex(3,4);
+  a = new Complex(1,0);
   
-  Complex fz = A.F(z);
-  println(fz.toString());
-  Complex ffz = A.FInv(fz);
-  println(ffz.toString());
+  //Complex ffz = A.FInv(fz);
+  //println(ffz.toString());
   size(1000,1000);
   
 }
 
 void draw(){
   RenderPlane();
+  a.SetMouse();
+  A.F(a).Plot(128,0,0);
+  A.F(A.F(a)).Plot(255,0,0);
+  A.FInv(a).Plot(0,0,128);
+  A.FInv(A.FInv(a)).Plot(0,0,255);
 }

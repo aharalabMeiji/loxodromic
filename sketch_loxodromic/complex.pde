@@ -8,7 +8,14 @@ class Complex{
     re = _re;
     im = _im;
   }
-  
+  void Set(float _re, float _im){
+    re = _re;
+    im = _im;
+  }
+  void SetMouse(){
+    re = (mouseX-yAxis)/unit;
+    im = -(mouseY-xAxis)/unit;
+  }
   Complex copy(){
     return new Complex (re, im);
   }
@@ -92,6 +99,13 @@ class Complex{
       im = -newNorm * sin(newTheta);
     }
   }
+  
+  void Plot(float r, float g, float b)
+  {
+    noStroke();
+    fill(r,g,b);
+    ellipse(yAxis+unit*re,xAxis-unit*im,4,4); 
+  }
 }
 
 Complex rotation(float theta){
@@ -99,7 +113,26 @@ Complex rotation(float theta){
 }
 
 Complex QuadraticEquation(Complex a, Complex b, Complex c, boolean first){
- // (-b+sqrt(b^2-4*a*c))/(2a)
- if(
-  
+  // (-b+sqrt(b^2-4*a*c))/(2a)
+  if(a.equal(0)){// linear equation -c/b;
+    Complex ans=c.copy();//c
+    ans.times(-1);//-c
+    ans.div(b); // -c/b
+    return ans;
+  }
+  else {
+    Complex d = b.copy();//b;
+    d.times(b);// b^2;
+    Complex ac4 = a.copy();//a
+    ac4.times(c);//ac;
+    ac4.times(4f);// 4ac
+    d.minus(ac4);// b^2-4ac;
+    d.sqrt(first);// sqrt(b^2-4ac);
+    Complex ans = b.copy();// b;
+    ans.times(-1);//-b;
+    ans.plus(d);//-b+sqrt(b^2-4ac);
+    ans.div(a);//(-b+sqrt(b^2-4ac))/(a);
+    ans.div(2);//(-b+sqrt(b^2-4ac))/(2a);
+    return ans;
+  }
 }

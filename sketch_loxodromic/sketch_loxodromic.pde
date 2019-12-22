@@ -19,7 +19,7 @@ void setup() {
   background(255);
 }
 
-int step = 0;
+int step = 2;
 
 void draw() {
   if (mousePressed) {
@@ -37,7 +37,7 @@ void draw() {
 
 void keyPressed(){
   step++;
-  println(step);
+  //println(step);
     loadPixels();
     klein.RenderTiling(mouseX,mouseY,step);
     updatePixels();

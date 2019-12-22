@@ -84,6 +84,9 @@ class SL2C{
     }
   }
   
+  void RenderAxis(){
+    
+  }
 }
 
   //SL2C grammasRecipe(Complex t1, Complex t2){

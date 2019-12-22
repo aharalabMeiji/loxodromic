@@ -31,6 +31,8 @@ class Group {
       }
     }
   }
+  
+  void RenderOrbit(Complex c, 
   void RenderTiling(int x0, int y0, int w) {
     for (int x=x0-w; x<=x0+w; x++) {
       for (int y=y0-w; y<=y0+w; y++) {

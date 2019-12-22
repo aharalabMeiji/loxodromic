@@ -19,15 +19,26 @@ void setup() {
   background(255);
 }
 
+int step = 0;
+
 void draw() {
   if (mousePressed) {
     background(255);
     RenderPlane(false);
     a.SetMouse();
     loadPixels();
-    klein.RenderOrbit(a, 0);
+    //klein.RenderOrbit(a,0,-1);
+    klein.RenderTiling(mouseX,mouseY,2);
     updatePixels();
   }
   else {
   }
+}
+
+void keyPressed(){
+  step++;
+  println(step);
+    loadPixels();
+    klein.RenderTiling(mouseX,mouseY,step);
+    updatePixels();
 }

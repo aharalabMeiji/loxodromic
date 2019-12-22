@@ -49,7 +49,7 @@ class SL2C{
     return d;
   }
   String toString(){
-    return "( "+a.toString()+" , "+b.toString()+" )\n"+"( "+c.toString()+" , "+d.toString()+" )";
+    return "( "+a.toString()+" , "+b.toString()+" )\n( "+c.toString()+" , "+d.toString()+" )";
   }
   
   Complex F(Complex z){

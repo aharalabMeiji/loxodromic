@@ -24,15 +24,18 @@ class Group {
           RenderOrbit(A.F(c), depth+1,0);
         if(dir!=0)
           RenderOrbit(A.FInv(c), depth+1,1);
-        //if(dir!=3)
-        //  RenderOrbit(B.F(c), depth+1,2);
-        //if(dir!=2)
-        //  RenderOrbit(B.FInv(c), depth+1,3);
+        if(dir!=3)
+          RenderOrbit(B.F(c), depth+1,2);
+        if(dir!=2)
+          RenderOrbit(B.FInv(c), depth+1,3);
       }
     }
   }
   
-  void RenderOrbit(Complex c, 
+  void RenderOrbitInverse(Complex c,  int depth, int dir) {
+    
+  }
+  
   void RenderTiling(int x0, int y0, int w) {
     for (int x=x0-w; x<=x0+w; x++) {
       for (int y=y0-w; y<=y0+w; y++) {

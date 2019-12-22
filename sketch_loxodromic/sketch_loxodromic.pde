@@ -28,6 +28,7 @@ void draw() {
     a.SetMouse();
     loadPixels();
     //klein.RenderOrbit(a,0,-1);
+    step = 2;
     klein.RenderTiling(mouseX,mouseY,2);
     updatePixels();
   }

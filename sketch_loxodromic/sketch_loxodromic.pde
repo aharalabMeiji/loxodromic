@@ -2,10 +2,17 @@ SL2C A, B;
 Complex a;
 Group klein;
 void setup() {
-  A = new SL2C();
-  A.set21(1, 1);
-  B = new SL2C();
-  B.set12(1, 1);
+  //Complex ta = new Complex(3,0), tb = new Complex(3,0); 
+  //Complex ta = new Complex(2.7,0), tb = new Complex(2.7,0); 
+  //Complex ta = new Complex(2.2,0), tb = new Complex(2.2,0); 
+  //Complex ta = new Complex(2,0), tb = new Complex(2,0); 
+  //Complex ta = new Complex(3,-0.5), tb = new Complex(3,0.5); 
+  //Complex ta = new Complex(2,0.5), tb = new Complex(3,0); 
+  //Complex ta = new Complex(2,0.5), tb = new Complex(2,0.5); 
+  Complex ta = new Complex(2,0.2), tb = new Complex(2,-0.2); 
+  //Complex ta = new Complex(2,0.05), tb = new Complex(3,0); 
+  A = grammasRecipe(ta, tb, true);
+  B = grammasRecipe(ta, tb, false);
 
   klein = new Group();
   klein.SetA(A, B);

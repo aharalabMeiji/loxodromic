@@ -46,6 +46,10 @@ class Complex{
     re += z.re;
     im += z.im;
   }
+  void plus(float z){
+    re += z;
+    im += 0;
+  }
   
   void minus(Complex z){
     re -= z.re;

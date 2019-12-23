@@ -63,6 +63,13 @@ class SL2C {
     azb.div(czd);
     return azb;
   }
+  ComplexSquare F(ComplexSquare a){
+    Complex x = F(a.x);
+    Complex y = F(a.y);
+    Complex z = F(a.z);
+    Complex w = F(a.w);
+    return new ComplexSquare(x,y,z,w);
+  }
   Complex FInv(Complex z) {  //(dz-b)/(-cz+a)
     Complex dzb = d.copy();//d
     dzb.times(z);//dz
@@ -73,6 +80,13 @@ class SL2C {
     cza.plus(a);//-cz+a
     dzb.div(cza);//(dz-b)/(-cz+a)
     return dzb;
+  }
+  ComplexSquare FInv(ComplexSquare a){
+    Complex x = FInv(a.x);
+    Complex y = FInv(a.y);
+    Complex z = FInv(a.z);
+    Complex w = FInv(a.w);
+    return new ComplexSquare(x,y,z,w);
   }
 
   void RenderOrbit(Complex c, int depth) {

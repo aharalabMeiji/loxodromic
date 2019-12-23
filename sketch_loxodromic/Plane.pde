@@ -34,7 +34,7 @@ void RenderPlane(boolean render) {
   //background(255);
   xAxis = 0.5f * height;
   yAxis = 0.5f * width;
-  unit = 0.2f*width;
+  unit = 0.4f*width;
   if (render) {
     for (int x=-3; x<=3; x++) {
       if (x==0) {

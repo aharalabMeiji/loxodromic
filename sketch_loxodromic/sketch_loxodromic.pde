@@ -10,7 +10,7 @@ void setup() {
   //Complex ta = new Complex(2,0.5), tb = new Complex(3,0); 
   //Complex ta = new Complex(2,0.5), tb = new Complex(2,0.5); 
   //Complex ta = new Complex(2,0.2), tb = new Complex(2,-0.2); 
-  Complex ta = new Complex(2,0.05), tb = new Complex(3,0); 
+  Complex ta = new Complex(2, 0.05), tb = new Complex(3, 0); 
   A = grammasRecipe(ta, tb, true);
   B = grammasRecipe(ta, tb, false);
 
@@ -31,21 +31,20 @@ int step = 2;
 void draw() {
   if (mousePressed) {
     background(255);
-    RenderPlane(true);
+    RenderPlane(false);
     a.SetMouse();
     loadPixels();
     step = 2;
     klein.RenderTiling(mouseX,mouseY,2);
     updatePixels();
-  }
-  else {
+  } else {
   }
 }
 
-void keyPressed(){
+void keyPressed() {
   step++;
   //println(step);
-    loadPixels();
-    klein.RenderTiling(mouseX,mouseY,step);
-    updatePixels();
+  loadPixels();
+  klein.RenderTiling(mouseX,mouseY,step);
+  updatePixels();
 }

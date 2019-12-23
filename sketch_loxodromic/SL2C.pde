@@ -64,14 +64,14 @@ class SL2C {
     return azb;
   }
   Complex FInv(Complex z) {  //(dz-b)/(-cz+a)
-    Complex dzb = d.copy();
-    dzb.times(z);
-    dzb.minus(b);
-    Complex cza = c.copy();
-    cza.times(-1);
-    cza.times(z);
-    cza.plus(a);
-    dzb.div(cza);
+    Complex dzb = d.copy();//d
+    dzb.times(z);//dz
+    dzb.minus(b);//dz-b
+    Complex cza = c.copy();//c
+    cza.times(-1);//-c
+    cza.times(z);//-cz
+    cza.plus(a);//-cz+a
+    dzb.div(cza);//(dz-b)/(-cz+a)
     return dzb;
   }
 
@@ -148,7 +148,6 @@ SL2C grammasRecipe(Complex ta, Complex tb, boolean A) {
     a21b.times(2);// 2*tab
     a21b.plus(-4);// 2*tab-4
     a21.div(a21b);//(ta*tab-2*tb-4i)*z0/(2*tab-4)
-    println("debug a21=",a21.toString());
     ret.set21(a21);
     return ret;
   } else {

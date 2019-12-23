@@ -8,8 +8,8 @@ void setup() {
   //Complex ta = new Complex(2,0), tb = new Complex(2,0); 
   //Complex ta = new Complex(3,-0.5), tb = new Complex(3,0.5); 
   //Complex ta = new Complex(2,0.5), tb = new Complex(3,0); 
-  //Complex ta = new Complex(2,0.5), tb = new Complex(2,0.5); 
-  Complex ta = new Complex(2,0.2), tb = new Complex(2,-0.2); 
+  Complex ta = new Complex(2,0.5), tb = new Complex(2,0.5); 
+  //Complex ta = new Complex(2,0.2), tb = new Complex(2,-0.2); 
   //Complex ta = new Complex(2,0.05), tb = new Complex(3,0); 
   A = grammasRecipe(ta, tb, true);
   B = grammasRecipe(ta, tb, false);
@@ -34,7 +34,6 @@ void draw() {
     RenderPlane(false);
     a.SetMouse();
     loadPixels();
-    //klein.RenderOrbit(a,0,-1);
     step = 2;
     klein.RenderTiling(mouseX,mouseY,2);
     updatePixels();

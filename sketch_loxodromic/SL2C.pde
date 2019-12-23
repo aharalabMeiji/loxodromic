@@ -102,7 +102,7 @@ SL2C grammasRecipe(Complex ta, Complex tb, boolean A) {
     Complex c1 = tb.copy();// tb
     c1.times(tb); // tb*tb;
     c.plus(c1);// ta*ta+tb*tb
-    Complex tab = QuadraticEquation(a, b, c, true);
+    Complex tab = QuadraticEquation(a, b, c, false);
     println("t_ab = ",tab.toString());
     // get z0
     Complex z0 = tab.copy(); // tab

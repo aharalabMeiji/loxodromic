@@ -3,14 +3,14 @@ Complex a;
 Group klein;
 void setup() {
   //Complex ta = new Complex(3,0), tb = new Complex(3,0); 
-  //Complex ta = new Complex(2.7,0), tb = new Complex(2.7,0); 
-  //Complex ta = new Complex(2.2,0), tb = new Complex(2.2,0); 
+  //Complex ta = new Complex(2.7,0), tb = new Complex(2.7,0); //X
+  //Complex ta = new Complex(2.2,0), tb = new Complex(2.2,0); //X
   //Complex ta = new Complex(2,0), tb = new Complex(2,0); 
   //Complex ta = new Complex(3,-0.5), tb = new Complex(3,0.5); 
   //Complex ta = new Complex(2,0.5), tb = new Complex(3,0); 
-  Complex ta = new Complex(2,0.5), tb = new Complex(2,0.5); 
+  //Complex ta = new Complex(2,0.5), tb = new Complex(2,0.5); 
   //Complex ta = new Complex(2,0.2), tb = new Complex(2,-0.2); 
-  //Complex ta = new Complex(2,0.05), tb = new Complex(3,0); 
+  Complex ta = new Complex(2,0.05), tb = new Complex(3,0); 
   A = grammasRecipe(ta, tb, true);
   B = grammasRecipe(ta, tb, false);
 
@@ -31,7 +31,7 @@ int step = 2;
 void draw() {
   if (mousePressed) {
     background(255);
-    RenderPlane(false);
+    RenderPlane(true);
     a.SetMouse();
     loadPixels();
     step = 2;
